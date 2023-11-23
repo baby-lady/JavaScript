@@ -1,0 +1,29 @@
+/**
+colores:
+body text color: #949AA6
+#626773
+navbar text and icon color: #A6818F
+navbar y footer bg: #46354E
+#261E24
+background: #0D0A0C
+
+
+font-family: 'Major Mono Display', monospace;
+font-family: 'Thasadith', sans-serif; (regular 400 and bold 700)
+**/
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Thasadith:wght@400;700&display=swap');
+*{
+    margin: .125rem;
+    padding: .125rem;
+    box-sizing: border-box;
+    font-family: 'Thasadith', sans-serif;
+    color: #949AA6;
+}
+
+body{
+    background-color: #0D0A0C;
+    background-image: url(../assets/waves.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

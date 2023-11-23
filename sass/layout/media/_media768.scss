@@ -1,0 +1,110 @@
+@media (max-width: 768px){
+    .sectionPrincipal {
+        margin: auto;
+        h1{
+            font-size: 10rem;
+            text-align: center;
+            /*margin-bottom: 3.125rem;*/
+            margin-top: 3.125rem;
+        }
+        h2{
+            font-size: 2rem;
+            text-align: center;
+            margin: auto;
+        }
+    }
+    .sectionMision {
+        margin-top: 3.125rem;
+        article{
+            h3{
+                strong{
+                    margin: auto;
+                    font-size: 3rem;
+                }
+            }
+            p{
+                font-size: 1.75rem;
+                margin: auto;
+            }
+        }
+    }
+    .sectionTerapias{
+        h3{
+            margin: auto;
+            strong{
+                font-size: 3rem;
+            }
+        }
+        p{
+            font-size: 1.75rem;
+            margin: auto;
+        }
+    }
+    .nuestraMision{
+        section{
+            h1{
+                strong{
+                    font-size: 3.75rem;
+                }
+            }
+            article{
+                font-size: 1.5rem;
+            }
+        }
+    }
+    .terapias{
+        h1{
+            strong{
+                font-size: 4.5rem;
+                color: $cr;
+            }
+        }
+        p{
+            font-size: 2rem;
+        }
+    }
+    .cardsTerapias{
+        @include flex(column, nowrap, center, none, none);
+    }
+    .nosotros{
+        h1{
+            strong{
+                font-size: 4.5rem;
+            }
+        }
+        article{
+            p{
+                font-size: 1.5rem;
+            }
+        }
+    }
+    .unete{
+        h1{
+            font-size: 4rem;
+        }
+        .registrate{
+            h2{
+                font-size: 2rem;
+            }
+            div{
+                font-size: 1.5rem;
+            }
+            .astroregalo{
+                h3{
+                    font-size: 2rem;
+                }
+                div{
+                    p{
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        .formulario{
+            font-size: 1.5rem;
+            legend{
+                font-size: 2rem;
+            }
+        }
+        }
+    }
+}

@@ -1,0 +1,78 @@
+.sectionPrincipal{
+    .scale-in-center{
+        animation:scale-in-center 1s 
+        cubic-bezier(.25,.46,.45,.94) both
+    }
+    margin: 0 80px 200px 80px;
+    h1{
+        margin: .9375rem;
+        text-align: center;
+        font-family: 'Major Mono Display', monospace;
+        font-weight: 37.5rem;
+        font-size: 10rem;
+        color: $cr;
+    }
+    h2{
+        margin: 15px 50px;
+        text-align: center;
+        font-family: 'Major Mono Display', monospace;
+        font-weight: 25rem;
+        font-size: 3.125rem;
+        color: #0D0A0C;
+    }
+}
+
+.sectionMision{
+    height: 100%;
+    margin-bottom: 3.125rem;
+    article{
+        h3{
+            text-align: start;
+            strong{
+                margin: 1.5625rem;
+                padding: 1.25rem;
+                font-family: 'Major Mono Display', monospace;
+                font-size: 4.375rem;
+                color: $cr;
+            }
+        }
+        p{
+            background-color: #0d0a0c93;
+            border-radius: $bradiusnavfooter;
+            margin: 0 1.5625rem;
+            padding: 0 1.25rem;
+            text-align: start;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: $cr;
+        }
+    }
+}
+.sectionTerapias{
+    margin-bottom: 3.125rem;
+    h3{
+        text-align: end;
+        strong{
+            margin: 1.5625rem;
+            padding: 1.25rem;
+            font-family: 'Major Mono Display', monospace;
+            font-size: 4.375rem ;
+            color: $cr;
+        }
+    }
+    p{
+        background-color: #0d0a0c93;
+        border-radius: $bradiusnavfooter;
+        margin: 0 1.5625rem;
+        padding: 0 1.25rem;
+        text-align: end;
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: $cr;
+        em{
+            color: $cr;
+        }
+    }
+}
+
+

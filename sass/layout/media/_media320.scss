@@ -1,0 +1,85 @@
+@media (max-width: 320px){
+    .sectionPrincipal {
+        h1{
+            font-size: 4.0625rem;
+            margin-bottom: 0;
+            }
+        h2{
+            display: none;
+        }
+    }
+    .sectionMision{
+        article{
+            h3{
+                strong{
+                    font-size: 1.3rem;
+                    color: $cr
+                }
+            }
+            p{
+                font-size: 1rem;
+            }
+        }
+    }
+    .sectionTerapias{
+        h3{
+            strong{
+                color: $cr;
+                font-size: 1.3rem;
+            }
+        }
+        p{
+            font-size: 1rem;
+        }
+    }
+    .nuestraMision{
+        section{
+            h1{
+                font-size: 3.2rem;
+            }
+            article{
+                font-size: 1rem;
+            }
+        }
+        article{
+            font-size: 1rem;
+        }
+    }
+    .terapias{
+        h1{
+            strong{
+                font-size: 3rem;
+            }
+        }
+    .pCard{
+        display: none;
+        }
+    }
+    .nosotros{
+        h1{
+            strong{
+                font-size: 3.5rem;
+            }
+        }
+        article{
+            p{
+                font-size: 1rem;
+            }
+        }
+        .sobretynat{
+            margin: 0;
+            p{
+                font-size: 1.5rem;
+                padding: 2%;
+            }
+        }
+    }
+    figcaption{
+        font-size: 1.5rem;
+    }
+    .unete{
+        h1{
+            font-size: 2.3rem;
+        }
+    }
+}

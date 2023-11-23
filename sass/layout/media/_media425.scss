@@ -1,0 +1,79 @@
+@media (max-width: 425px){
+    .sectionPrincipal {
+        margin: 0;
+        h1{
+            font-size: 5rem;
+            margin-top: 3.125rem;
+            margin-bottom: 3.125rem;
+        }
+        h2{
+            font-size: 1.7rem;
+            margin-bottom: 20px;
+        }
+    }
+    .sectionMision{
+        article{
+            h3{
+                strong{
+                    font-size: 2rem;
+                }
+            }
+            p{
+                font-size: 1.5rem;
+            }
+        }
+    }
+    .sectionTerapias{
+        h3{
+            strong{
+                font-size: 2.2rem;
+        }
+    }
+        p{
+            font-size: 1.5rem;
+        }
+    }
+    .nuestraMision{
+        section{
+            h1{
+                strong{
+                    font-size: 3.75rem;
+                }
+            }
+            article{
+                font-size: 1.5rem;
+            }
+        }
+    }
+    .terapias {
+        margin: auto;
+        h1{
+            strong{
+                font-size: 3rem;
+            }
+        }
+        p{
+            font-size: 1.5rem;
+        }
+    }
+    .pCard{
+        display: none;
+    }
+    .unete{
+        h1{
+            font-size: 3.25rem;
+        }
+    }
+    .nosotros{
+        h1{
+            strong{
+                font-size: 3.25rem;
+            }
+        }
+        article{
+            p{
+                font-size: 1rem;
+            }
+        }
+    }
+}

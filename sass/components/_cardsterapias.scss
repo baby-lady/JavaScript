@@ -1,0 +1,4 @@
+.cards-terapia{
+    @include flex (row, wrap, center, start, 20px);
+    border: .0625rem;
+}

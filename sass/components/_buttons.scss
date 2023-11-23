@@ -1,0 +1,21 @@
+.boton{
+    @include flex (row, nowrap, center, center, none);
+    margin: 1.5625rem;
+    padding: 1.25rem;
+}
+.btn{
+    background-color: $cr;
+    border-radius: 1.25rem;
+    color: #0D0A0C;
+    font-family: 'Major Mono Display', monospace;
+    a{
+        text-decoration: none;
+        color: #0D0A0C;
+        font-weight: 600;
+        font-family: 'Major Mono Display', monospace;
+    }
+    }
+.btn:hover{
+    transform: scale(1.2); 
+    transition: 0.5s;
+}

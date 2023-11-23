@@ -1,0 +1,97 @@
+@media (max-width: 512px) {
+    .sectionPrincipal{
+        margin: auto;
+        margin-bottom: 2.5rem;
+        h1{
+            font-size: 6.25rem;
+        }
+        h2{
+            font-size: 1.3rem;
+            margin: auto;
+        }
+    }
+    .sectionMision{
+        margin-bottom: 50px;
+        article{
+            h3{
+                text-align: center;
+                margin-bottom: 20px;
+                strong{
+                    font-size: 2.5rem;
+                    color: $bc;
+                }
+            }
+            p{
+                text-align: center;
+                font-size: 1.5rem;
+            }
+        }
+    }
+    .sectionTerapias{
+        h3{
+            text-align: center;
+            margin-bottom: 20px;
+            strong{
+                color: $bc;
+                font-size: 2.5rem;
+            }
+        }
+        p{
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    }
+    .nuestraMision{
+        section{
+            h1{
+                strong{
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+    .terapias{
+        h1{
+            strong{        
+                font-size: 3rem;
+            }
+        }
+    }
+    .nosotros{
+        h1{
+            strong{
+                font-size: 3.5rem;
+            }
+        }
+        article{
+            p{
+                font-size: 2rem;
+            }
+        }
+        .sobretynat{
+            margin: 20px;
+            p{
+                padding: 10px;
+                font-weight: 600;
+                font-size: 1.5rem;
+                font-style: italic;
+            }
+        }
+        figcaption{
+            font-size: 1.4rem;
+        }
+    }
+    .unete{
+        h1{
+            font-size: 3rem;
+        }
+        .registrate{
+            .astroregalo{
+                margin: 50px;
+                h3{
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}

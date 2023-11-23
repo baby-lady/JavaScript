@@ -1,0 +1,21 @@
+header{
+    background-color: #46354E;
+    margin: .3125rem;
+    height: auto;
+    width: auto;
+    position: sticky;
+    border-radius: 1.25rem;
+    top: 0.5rem;
+    z-index: 100;
+    .navbar{
+        width: auto;
+        text-decoration: none;
+        font-family: 'Major Mono Display', monospace;
+        font-size: 1.25rem;
+        font-weight: 600;
+        a {
+            font-family: 'Major Mono Display', monospace;
+            color: #A6818F;
+        }
+    }
+}

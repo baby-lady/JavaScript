@@ -1,0 +1,25 @@
+.nosotros{
+    height: 100%;
+    text-align: center;
+    h1{
+        strong{
+            font-size: $titlessize;
+            font-family: 'Major Mono Display', monospace;
+            color: $cr;
+        }
+    }
+    .sobretynat{
+        margin: 30px;
+        background-color: #0d0a0c93;
+        border-radius: $bradiusnavfooter;
+        p{
+            padding: 50px;
+            font-weight: 600;
+            font-size: 1.875rem;
+            font-style: italic;
+        }
+    }
+    figcaption{
+        font-size: 1.6rem;
+    }
+}

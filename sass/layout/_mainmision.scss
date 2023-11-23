@@ -1,0 +1,22 @@
+.nuestraMision{
+    section{
+        height: 100%;
+        text-align: center;
+            h1{
+                strong{
+                    font-family: 'Major Mono Display', monospace;
+                    font-size: $titlessize;
+                    color: $cr;
+                }
+            }
+        article{
+            background-color: #0d0a0c93;
+            border-radius: $bradiusnavfooter;
+            margin: 30px;
+            font-size: 1.875rem;
+            font-weight: 600;
+        }
+    }
+}
+
+

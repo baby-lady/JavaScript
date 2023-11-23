@@ -1,0 +1,40 @@
+.terapias{
+    margin: 1.875rem;
+    text-align: center;
+    font-size: 1.875rem;
+    color: #0D0A0C;
+    h1{
+        strong{
+            font-family: 'Major Mono Display', monospace;
+            text-align: center;
+            font-size: $titlessize;
+            color: $cr;
+        }
+    }
+    p{
+        text-align: center;
+        color: #0D0A0C;
+        em{
+            color: #0D0A0C;
+        }
+    }
+}
+
+.card{
+    background-color: #A6818F;
+}
+
+.card-text{
+    color:#0D0A0C;
+    font-weight: 600;
+}
+
+.card-title{
+    font-family: 'Thasadith', sans-serif;
+    font-size: 1rem;
+    color:#0D0A0C;
+}
+
+.text-decoration-none{
+    color: #0D0A0C;
+}
