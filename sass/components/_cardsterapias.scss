@@ -2,3 +2,7 @@
     @include flex (row, wrap, center, start, 20px);
     border: .0625rem;
 }
+
+.cards-compras{
+    @include flex (column, nowrap, center, start, 30px);
+}

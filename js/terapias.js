@@ -37,11 +37,20 @@
 // let nombreUsuario
 // let edadUsuario
 
+// function bienvenida(){
+//     edadUsuario = parseInt(prompt("ingrese su edad"));
+//     if (edadUsuario >= 18){
+//         alert("Bienvenidx!");
+//     } else {
+//         alert("Usted no tiene permitido el acceso");
+//     }
+// }
+
 function bienvenida(){
-    nombreUsuario = prompt("Ingrese su nombre completo");
-    edadUsuario = parseInt(prompt("ingrese su edad"));
+    edadUsuario = parseInt(prompt("Ingrese su edad"));
+    edadUsuario > 18 ? alert("¡Bienvenido!") : alert("Debés ser mayor para continuar.");
     if (edadUsuario >= 18){
-        alert("Bienvenidx " + nombreUsuario + "!");
+        window.location.href = "compras.html";
     } else {
         alert("Usted no tiene permitido el acceso");
     }
@@ -50,32 +59,39 @@ function bienvenida(){
 // bienvenida();
 // console.log("Nombre: "+ nombreUsuario + ". Edad: " + edadUsuario)
 
-// const terapia = function(precio, tipo, extra, precioad){
-//     this.precio = precio;
-//     this.tipo = tipo;
-//     this.extra = extra;
-//     this.precioad = precioad;
-// }
+const terapia = function(nombre, precio, tipo, extra, precioad){
+    this.nombre = nombre;
+    this.precio = precio;
+    this.tipo = tipo;
+    this.extra = extra;
+    this.precioad = precioad;
+}
 
-// // variables de objetos
-// let astrologia = new terapia (10000, "Carta Natal", "Revolución Solar", 3000)
-// let reiki = new terapia (5000, "Individual")
-// let constelaciones = new terapia (12000, "Grupal")
-// let constelaciones2 = new terapia (15000, "Individual")
-// let tarot = new terapia (5000, "Tirada completa", "Tres preguntas", 2000)
-// let radiestesia = new terapia (8000, "Limpieza", "Armonización", 3000)
-// let numerologia = new terapia (6000, "Lectura clasica", "Anual por cumpleaños", 4000)
-// let registros = new terapia (6000, "Tres preguntas", "Tres preguntas más", 3000)
-// let tFloral = new terapia (6000, "Sesión + frasco", "Frasco grande", 1500)
+// variables de objetos
+let astrologia = new terapia ("Astrología", 10000, "Carta Natal", "Revolución Solar", 3000)
+let reiki = new terapia ("Reiki", 5000, "Individual")
+let constelaciones = new terapia ("Constelaciones Familiares", 12000, "Grupal")
+let constelaciones2 = new terapia ("Constelacion Individual", 15000, "Individual")
+let tarot = new terapia ("Tarot", 5000, "Tirada completa", "Tres preguntas", 2000)
+let radiestesia = new terapia ("Radiestesia", 8000, "Limpieza", "Armonización", 3000)
+let numerologia = new terapia ("Numerología", 6000, "Lectura clasica", "Anual por cumpleaños", 4000)
+let registros = new terapia ("Registros Akashicos", 6000, "Tres preguntas", "Tres preguntas más", 3000)
+let tFloral = new terapia ("Terapia Floral de Bach", 7000, "Sesión + frasco", "Frasco grande", 1500)
 
-// //array terapias
+//array terapias
 
-// const Terapias = [astrologia, reiki, constelaciones, constelaciones2, tarot, radiestesia, numerologia, registros, tFloral]
+const Terapias = [astrologia, reiki, constelaciones, constelaciones2, tarot, radiestesia, numerologia, registros, tFloral]
+
+const terapiasEnJSON = JSON.stringify(Terapias)
+localStorage.setItem("terapias a elección", terapiasEnJSON)
+console.log(terapiasEnJSON)
 
 // function terapiaEleccion (){
 //     let Eleccion = prompt("Elegí que terapia querés realizar").toLowerCase();
 
 // }
+
+// botones sesiones
 
 let botones = document.getElementsByClassName("btn btn-outline-dark")
 
@@ -85,30 +101,38 @@ for (let i = 0; i < botones.length; i++) {
 
 botones.addEventListener = ("click", bienvenida)
 
-// datos del form
+// gardado de datos del form
 
-const inputNombre = document.querySelector("#nombre");
-const inputApellido = document.querySelector("#apellido");
-const inputMail = document.querySelector("#mail");
-const botonEnviar = document.querySelector("#enviar");
-
-botonEnviar.addEventListener("Click", guardarForm);
+const inputNombre = document.getElementById("nombre");
+const inputApellido = document.getElementById("apellido");
+const inputMail = document.getElementById("mail");
+const inputFecha = document.getElementById("fecha-de-nacimiento")
+const inputLugar = document.getElementById("lugar");
+const inputHora = document.getElementById("hora");
+const botonEnviar = document.getElementById("enviar");
 
 function guardarForm (){
     const datosdelForm ={
         nombre:inputNombre.value,
         apellido:inputApellido.value,
         mail:inputMail.value,
+        fecha:inputFecha.value,
+        lugar:inputLugar.value,
+        hora:inputHora.value,
     }
-    let resultado=JSON.stringify(datosdelForm)
-    localStorage.setItem("datosForm", resultado)
+    let resultado=JSON.stringify(datosdelForm);
+    localStorage.setItem("datosForm", resultado);
+    console.log("datos ingresados por el usuario: " + resultado);
 }
 
-function cargarForm(){
-    const formulario=document.getElementById("Form"),
-    const DatosJSON=localStorage.getItem("datosForm"),
-    if (DatosJSON){
-        const datosdelForm=JSON.parse(datosdelForm),
-        formulario.nombre.value=datosdelForm.nombre,
-    }
-}
+botonEnviar.addEventListener("click", guardarForm);
+
+
+// function cargarForm(){
+//     const formulario=document.getElementById("Form"),
+//     const DatosJSON=localStorage.getItem("datosForm"),
+//     if (DatosJSON){
+//         const datosdelForm=JSON.parse(datosdelForm),
+//         formulario.nombre.value=datosdelForm.nombre,
+//     }
+// }

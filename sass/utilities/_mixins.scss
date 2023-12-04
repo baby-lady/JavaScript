@@ -7,3 +7,17 @@
     align-items: $align;
     gap: $gap;
     }
+
+/*GRIDS*/
+// @mixin grid ($col, $row, $area){
+//     display: grid;
+//     grid-template-columns: $col;
+//     grid-template-rows: $row;
+//     grid-template-areas: $area;
+// }
+
+@mixin card-grid($columns: 3, $gap: 20px) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gap;
+}
