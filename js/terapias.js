@@ -84,3 +84,31 @@ for (let i = 0; i < botones.length; i++) {
 }
 
 botones.addEventListener = ("click", bienvenida)
+
+// datos del form
+
+const inputNombre = document.querySelector("#nombre");
+const inputApellido = document.querySelector("#apellido");
+const inputMail = document.querySelector("#mail");
+const botonEnviar = document.querySelector("#enviar");
+
+botonEnviar.addEventListener("Click", guardarForm);
+
+function guardarForm (){
+    const datosdelForm ={
+        nombre:inputNombre.value,
+        apellido:inputApellido.value,
+        mail:inputMail.value,
+    }
+    let resultado=JSON.stringify(datosdelForm)
+    localStorage.setItem("datosForm", resultado)
+}
+
+function cargarForm(){
+    const formulario=document.getElementById("Form"),
+    const DatosJSON=localStorage.getItem("datosForm"),
+    if (DatosJSON){
+        const datosdelForm=JSON.parse(datosdelForm),
+        formulario.nombre.value=datosdelForm.nombre,
+    }
+}
