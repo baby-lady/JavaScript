@@ -1,3 +1,4 @@
+// FX 
 
 function Edad(){
     edadUsuario = parseInt(prompt("Ingrese su edad"));
@@ -5,7 +6,6 @@ function Edad(){
     if (edadUsuario >= 18){
         window.location.href = "compras.html";
     } else {
-        // alert("Usted no tiene permitido el acceso");
         Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -14,7 +14,7 @@ function Edad(){
     }
 }
 
-// botones página terapias
+// Botones página terapias
 
 let botones = document.getElementsByClassName("btn btn-outline-dark")
 
@@ -25,7 +25,7 @@ for (let i = 0; i < botones.length; i++) {
 botones.addEventListener = ("click", Edad);
 
 
-// creación de objetos de distintas terapias
+// Fx constructora objetos terapia
 
 const terapia = function(nombre, precio, tipo, extra, precioad, img){
     this.nombre = nombre;
@@ -36,7 +36,7 @@ const terapia = function(nombre, precio, tipo, extra, precioad, img){
     this.img = img;
 }
 
-// variables de objetos de terapias
+// Variables de objetos de terapias
 
 let astrologia = new terapia ("Astrología", 10000, "Carta Astral + Revolucion Solar. Duración: 2:30hs", "Revolución Solar", 3000, "../assets/icons/zodiac.png")
 let reiki = new terapia ("Reiki", 5000, "Sesiones individuales. Duración: 1hs", "", "", "../assets/icons/reiki.png")
@@ -47,7 +47,7 @@ let numerologia = new terapia ("Numerología", 6000, "Lectura clásica anual (de
 let registros = new terapia ("Registros Akashicos", 6000, "Devolución de cinco preguntas (Se solicitan previamente). Duración: 1:30hs", "Tres preguntas más", 3000, "../assets/icons/akasha.png")
 let tFloral = new terapia ("Terapia Floral de Bach", 7000, "Sesión individual, incluye frasco 30ml. Duración: 1hs", "Frasco grande", 1500, "../assets/icons/flores.png")
 
-//array terapias
+// Array terapias
 
 const Terapias = [astrologia, reiki, constelaciones, tarot, radiestesia, numerologia, registros, tFloral]
 
@@ -56,17 +56,6 @@ localStorage.setItem("Listado de terapias", terapiasEnJSON)
 
 
 // TIENDA
-
-// const terapiasYprecios =[
-//     {nombre:"Astrología", precio:10000},
-//     {nombre:"Reiki", precio:5000},
-//     {nombre:"Constelaciones Familiares", precio:12000},
-//     {nombre:"Tarot", precio:5000},
-//     {nombre:"Radiestesia", precio:8000},
-//     {nombre:"Numerología", precio:6000},
-//     {nombre:"Registros Akashicos", precio:6000},
-//     {nombre:"Terapia floral", precio:6000}
-// ]
 
 const Tienda = document.getElementById("Tienda");
 
