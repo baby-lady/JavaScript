@@ -51,9 +51,10 @@ let tFloral = new terapia ("Terapia Floral de Bach", 7000, "Sesión individual, 
 
 const Terapias = [astrologia, reiki, constelaciones, tarot, radiestesia, numerologia, registros, tFloral];
 
+// terapias a local
+
 const terapiasEnJSON = JSON.stringify(Terapias);
 localStorage.setItem("Listado de terapias", terapiasEnJSON);
-
 
 // TIENDA Y CARRITO DE COMPRA
 
@@ -61,94 +62,196 @@ const Tienda = document.getElementById("Tienda");
 const carritoTienda = document.getElementById("carritoTienda");
 const MCarrito = document.getElementById("modalCarrito");
 
-let carrito = []
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-Terapias.forEach((recorrido) => {
-    let contenido = document.createElement("div");
-    contenido.className = "cardsCompras";
-    contenido.innerHTML = `
-    <img src=${recorrido.img}>
-    <h2>${recorrido.nombre}</h2>
-    <p>${recorrido.tipo}</p>
-    <p>$${recorrido.precio}</p>
-    `;
-    Tienda.append(contenido);
-
-    let compras = document.createElement("button");
-    compras.innerText = "Agregar al carrito";
-    compras.className = "comprar";
-    contenido.append(compras);
-
-    compras.addEventListener("click", () => {
-        carrito.push({
-            nombre : recorrido.nombre,
-            tipo: recorrido.tipo,
-            precio : recorrido.precio,
+const getTerapias = async() => {
+    const response = await fetch ("../data.json");
+    const data = await response.json();
+    
+    data.forEach((recorrido) => {
+        let contenido = document.createElement("div");
+        contenido.className = "cardsCompras";
+        contenido.innerHTML = `
+        <img src=${recorrido.img}>
+        <h2>${recorrido.nombre}</h2>
+        <p>${recorrido.tipo}</p>
+        <p>$${recorrido.precio}</p>
+        `;
+        Tienda.append(contenido);
+    
+        let compras = document.createElement("button");
+        compras.innerText = "Agregar al carrito";
+        compras.className = "comprar";
+        contenido.append(compras);
+    
+        compras.addEventListener("click", () => {
+            carrito.push({
+                nombre : recorrido.nombre,
+                tipo: recorrido.tipo,
+                precio : recorrido.precio,
+            });
+            console.log (carrito);
+        }) 
+    });
+    
+    
+    
+    const cosasCarrito = () => {
+        MCarrito.innerHTML = "";
+        MCarrito.style.display = "flex";
+        
+        const modalCarrito= document.createElement("div");
+        modalCarrito.className = "sumaCarrito";
+        modalCarrito.innerHTML = `
+        <h2 class="tituloModal">terapias elegidas</h2>
+        `
+        MCarrito.append(modalCarrito);
+        
+        carrito.forEach((recorrido) =>{
+            let contenidoCarrito = document.createElement("div");
+            contenidoCarrito.className = "contenidoCarrito";
+            contenidoCarrito.innerHTML = `
+            <h3>${recorrido.nombre}</h3>
+            <p>$ ${recorrido.precio}</p>
+            `
+            MCarrito.append(contenidoCarrito);
+    
+            console.log(carrito.length);
+    
+            let eliminar = document.createElement("div");
+            eliminar.innerHTML = `
+                <img  class="btneliminar" src="../assets/delete.png ">
+            `
+            MCarrito.append(eliminar);
+    
+            eliminar.addEventListener("click", eliminarProductos)
         });
-        console.log (carrito);
-    }) 
-});
-
-
-
-const cosasCarrito = () => {
-    MCarrito.innerHTML = "";
-    MCarrito.style.display = "flex";
+        
+        const totalCarrito = carrito.reduce((acc, pp) => acc + pp.precio, 0);
+        
+        let precioApagar = document.createElement("div");
+        precioApagar.className = "precioApagar";
+        precioApagar.innerHTML = `
+        <p>Total a pagar: $ ${totalCarrito} </p>
+        `;
+        MCarrito.append(precioApagar);
     
-    const modalCarrito= document.createElement("div");
-    modalCarrito.className = "sumaCarrito";
-    modalCarrito.innerHTML = `
-    <h2 class="tituloModal">terapias elegidas</h2>
-    `
-    MCarrito.append(modalCarrito);
+        const botonModal = document.createElement("div");
+        botonModal.innerText = "cerrar";
+        botonModal.className = "botonModal";
     
-    carrito.forEach((recorrido) =>{
-        let contenidoCarrito = document.createElement("div");
-        contenidoCarrito.className = "contenidoCarrito";
-        contenidoCarrito.innerHTML = `
-        <h3>${recorrido.nombre}</h3>
-        <p>$ ${recorrido.precio}</p>
-        `
-        MCarrito.append(contenidoCarrito);
-
-        console.log(carrito.length);
-
-        let eliminar = document.createElement("div");
-        eliminar.innerHTML = `
-            <img  class="btneliminar" src="../assets/delete.png ">
-        `
-        MCarrito.append(eliminar);
-
-        eliminar.addEventListener("click", eliminarProductos)
-    });
+        botonModal.addEventListener("click", () =>{
+            MCarrito.style.display = "none";
+        });
+        MCarrito.append(botonModal);
+        saveLocal();
+    };
     
-    const totalCarrito = carrito.reduce((acc, pp) => acc + pp.precio, 0);
+    carritoTienda.addEventListener("click", cosasCarrito);
+
+    const eliminarProductos = () => {
     
-    let precioApagar = document.createElement("div");
-    precioApagar.className = "precioApagar";
-    precioApagar.innerHTML = `
-    <p>Total a pagar: $ ${totalCarrito} </p>
-    `;
-    MCarrito.append(precioApagar);
-
-    const botonModal = document.createElement("div");
-    botonModal.innerText = "cerrar";
-    botonModal.className = "botonModal";
-
-    botonModal.addEventListener("click", () =>{
-        MCarrito.style.display = "none";
-    });
-
-    MCarrito.append(botonModal);
-}
-
-carritoTienda.addEventListener("click", cosasCarrito);
-
-const eliminarProductos = () => {
     const productoEliminado = carrito.find((element) => element.nombre);
 
     carrito = carrito.filter((nombreProducto) => {
         return nombreProducto !== productoEliminado;
     });
     cosasCarrito ();
-}
+    };
+};
+
+getTerapias();
+
+// data.forEach((recorrido) => {
+//     let contenido = document.createElement("div");
+//     contenido.className = "cardsCompras";
+//     contenido.innerHTML = `
+//     <img src=${recorrido.img}>
+//     <h2>${recorrido.nombre}</h2>
+//     <p>${recorrido.tipo}</p>
+//     <p>$${recorrido.precio}</p>
+//     `;
+//     Tienda.append(contenido);
+
+//     let compras = document.createElement("button");
+//     compras.innerText = "Agregar al carrito";
+//     compras.className = "comprar";
+//     contenido.append(compras);
+
+//     compras.addEventListener("click", () => {
+//         carrito.push({
+//             nombre : recorrido.nombre,
+//             tipo: recorrido.tipo,
+//             precio : recorrido.precio,
+//         });
+//         console.log (carrito);
+//     }) 
+// });
+
+
+
+// const cosasCarrito = () => {
+//     MCarrito.innerHTML = "";
+//     MCarrito.style.display = "flex";
+    
+//     const modalCarrito= document.createElement("div");
+//     modalCarrito.className = "sumaCarrito";
+//     modalCarrito.innerHTML = `
+//     <h2 class="tituloModal">terapias elegidas</h2>
+//     `
+//     MCarrito.append(modalCarrito);
+    
+//     carrito.forEach((recorrido) =>{
+//         let contenidoCarrito = document.createElement("div");
+//         contenidoCarrito.className = "contenidoCarrito";
+//         contenidoCarrito.innerHTML = `
+//         <h3>${recorrido.nombre}</h3>
+//         <p>$ ${recorrido.precio}</p>
+//         `
+//         MCarrito.append(contenidoCarrito);
+
+//         console.log(carrito.length);
+
+//         let eliminar = document.createElement("div");
+//         eliminar.innerHTML = `
+//             <img  class="btneliminar" src="../assets/delete.png ">
+//         `
+//         MCarrito.append(eliminar);
+
+//         eliminar.addEventListener("click", eliminarProductos)
+//     });
+    
+//     const totalCarrito = carrito.reduce((acc, pp) => acc + pp.precio, 0);
+    
+//     let precioApagar = document.createElement("div");
+//     precioApagar.className = "precioApagar";
+//     precioApagar.innerHTML = `
+//     <p>Total a pagar: $ ${totalCarrito} </p>
+//     `;
+//     MCarrito.append(precioApagar);
+
+//     const botonModal = document.createElement("div");
+//     botonModal.innerText = "cerrar";
+//     botonModal.className = "botonModal";
+
+//     botonModal.addEventListener("click", () =>{
+//         MCarrito.style.display = "none";
+//     });
+//     MCarrito.append(botonModal);
+//     saveLocal();
+// };
+
+// carritoTienda.addEventListener("click", cosasCarrito);
+
+// const eliminarProductos = () => {
+//     const productoEliminado = carrito.find((element) => element.nombre);
+
+//     carrito = carrito.filter((nombreProducto) => {
+//         return nombreProducto !== productoEliminado;
+//     });
+//     cosasCarrito ();
+// };
+
+const saveLocal = () => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+};

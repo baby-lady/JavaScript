@@ -1,0 +1,50 @@
+[   
+    {
+        "nombre":"Astrología", 
+        "tipo": "Carta Astral + Revolucion Solar. Duración: 2:30hs",
+        "precio":10000,
+        "img": "../assets/icons/zodiac.png"
+    },
+    {
+        "nombre":"Reiki", 
+        "tipo": "Sesiones individuales. Duración: 1hs",
+        "precio":5000,
+        "img": "../assets/icons/reiki.png"
+    },
+    {
+        "nombre":"Constelaciones Familiares", 
+        "tipo": "Sesión grupal (grupos de 5/6 personas). Duración: 4hs",
+        "precio":12000,
+        "img": "../assets/icons/constelaciones.png"
+    },
+    {
+        "nombre":"Tarot", 
+        "tipo": "Retrato actual del consultante. Duración: 1hs",
+        "precio":5000,
+        "img": "../assets/icons/taroh.png" 
+    },
+    {
+        "nombre":"Radiestesia", 
+        "tipo": "Armonización y limpieza de contaminantes energéticos. Duración: 1:30hs",
+        "precio":8000,
+        "img": "../assets/icons/radiestesia.png"
+    },
+    {
+        "nombre":"Numerología", 
+        "tipo": "Lectura clásica anual (de cumpleaños). Duración: 1hs",
+        "precio":6000,
+        "img": "../assets/icons/numerologia.png"
+    },
+    {
+        "nombre":"Registros Akashicos", 
+        "tipo": "Devolución de cinco preguntas (Se solicitan previamente). Duración: 1:30hs",
+        "precio":6000,
+        "img": "../assets/icons/akasha.png"
+    },
+    {
+        "nombre":"Terapia floral", 
+        "tipo": "Sesión individual, incluye frasco 30ml. Duración: 1hs",
+        "precio":6000,
+        "img": "../assets/icons/flores.png"
+    }
+]
