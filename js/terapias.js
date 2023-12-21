@@ -58,6 +58,8 @@ localStorage.setItem("Listado de terapias", terapiasEnJSON)
 // TIENDA
 
 const Tienda = document.getElementById("Tienda");
+const carritoTienda = document.getElementById("carritoTienda");
+const MCarrito = document.getElementById("modalCarrito");
 
 let carrito = []
 
@@ -67,7 +69,7 @@ Terapias.forEach((recorrido) => {
     contenido.innerHTML = `
     <img src=${recorrido.img}>
     <h2>${recorrido.nombre}</h2>
-    <p>${recorrido.tipo}
+    <p>${recorrido.tipo}</p>
     <p>$${recorrido.precio}</p>
     `;
     Tienda.append(contenido);
@@ -80,9 +82,52 @@ Terapias.forEach((recorrido) => {
     compras.addEventListener("click", () => {
         carrito.push({
             nombre : recorrido.nombre,
+            tipo: recorrido.tipo,
             precio : recorrido.precio,
         })
         console.log (carrito)
-    })
+    }) 
 });
 
+
+carritoTienda.addEventListener("click", () => {
+    MCarrito.innerHTML = "";
+    MCarrito.style.display = "flex";
+    
+    const modalCarrito= document.createElement("div");
+    modalCarrito.className = "sumaCarrito";
+    modalCarrito.innerHTML = `
+    <h2 class="tituloModal">terapias elegidas</h2>
+    `
+    MCarrito.append(modalCarrito);
+    
+    carrito.forEach((recorrido) =>{
+        let contenidoCarrito = document.createElement("div")
+        contenidoCarrito.className = "contenidoCarrito"
+        contenidoCarrito.innerHTML = `
+        <h3>${recorrido.nombre}</h3>
+        <h5>${recorrido.tipo}</h5>
+        <p>$ ${recorrido.precio}</p>
+        `
+        MCarrito.append(contenidoCarrito)
+    });
+    
+    const totalCarrito = carrito.reduce((acc, pp) => acc + pp.precio, 0)
+    
+    let precioApagar = document.createElement("div")
+    precioApagar.className = "precioApagar"
+    precioApagar.innerHTML = `
+    <p>Total a pagar: $ ${totalCarrito} </p>
+    `
+    MCarrito.append(precioApagar)
+
+    const botonModal = document.createElement("div")
+    botonModal.innerText = "cerrar"
+    botonModal.className = "botonModal"
+
+    botonModal.addEventListener("click", () =>{
+        MCarrito.style.display = "none"
+    });
+
+    MCarrito.append(botonModal);
+})
