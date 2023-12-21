@@ -321,6 +321,7 @@ footer {
   background-color: #A6818F;
   border-radius: 1.25rem;
   color: #0D0A0C;
+  cursor: pointer;
   font-family: "Major Mono Display", monospace;
 }
 .btn a {
@@ -694,6 +695,10 @@ footer {
 
 /*# sourceMappingURL=style.css.map */
 
+/* JAVASCRIPT */
+
+/*cards js*/
+
 #Tienda{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -742,6 +747,8 @@ footer {
   background-color: #0D0A0C;
   border-radius: .9375rem;
 }
+
+/*carrito js*/
 
 .Carrito{
   font-family: "Major Mono Display", monospace;
@@ -808,6 +815,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
 }  
 
 .contenidoCarrito h3{
@@ -823,3 +831,11 @@ footer {
   font-weight: bold;
   font-size: 22px;
 }
+
+.btneliminar {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
