@@ -1,19 +1,3 @@
-// FX 
-
-// function Edad(){
-//     edadUsuario = parseInt(prompt("Ingrese su edad"));
-//     edadUsuario > 18 ? console.log("El usuario es mayor de edad") : console.log("El usuario es menor de edad");
-//     if (edadUsuario >= 18){
-//         window.location.href = "compras.html";
-//     } else {
-//         Swal.fire({
-//             icon: "error",
-//             title: "Oops...",
-//             text: "No tenés permito el acceso",
-//         });
-//     }
-// }
-
 // Botones página terapias
 
 let botones = document.getElementsByClassName("btn btn-outline-dark");
@@ -23,7 +7,6 @@ for (let i = 0; i < botones.length; i++) {
 }
 
 botones.addEventListener = ("click", ()=>{ window.location.href = "compras.html"});
-
 
 // Fx constructora objetos terapia
 
@@ -63,6 +46,8 @@ const carritoTienda = document.getElementById("carritoTienda");
 const MCarrito = document.getElementById("modalCarrito");
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+// traer de json y armar cards y carrito de la tienda
 
 const getTerapias = async() => {
     const response = await fetch ("../data.json");
@@ -161,96 +146,6 @@ const getTerapias = async() => {
 };
 
 getTerapias();
-
-// data.forEach((recorrido) => {
-//     let contenido = document.createElement("div");
-//     contenido.className = "cardsCompras";
-//     contenido.innerHTML = `
-//     <img src=${recorrido.img}>
-//     <h2>${recorrido.nombre}</h2>
-//     <p>${recorrido.tipo}</p>
-//     <p>$${recorrido.precio}</p>
-//     `;
-//     Tienda.append(contenido);
-
-//     let compras = document.createElement("button");
-//     compras.innerText = "Agregar al carrito";
-//     compras.className = "comprar";
-//     contenido.append(compras);
-
-//     compras.addEventListener("click", () => {
-//         carrito.push({
-//             nombre : recorrido.nombre,
-//             tipo: recorrido.tipo,
-//             precio : recorrido.precio,
-//         });
-//         console.log (carrito);
-//     }) 
-// });
-
-
-
-// const cosasCarrito = () => {
-//     MCarrito.innerHTML = "";
-//     MCarrito.style.display = "flex";
-    
-//     const modalCarrito= document.createElement("div");
-//     modalCarrito.className = "sumaCarrito";
-//     modalCarrito.innerHTML = `
-//     <h2 class="tituloModal">terapias elegidas</h2>
-//     `
-//     MCarrito.append(modalCarrito);
-    
-//     carrito.forEach((recorrido) =>{
-//         let contenidoCarrito = document.createElement("div");
-//         contenidoCarrito.className = "contenidoCarrito";
-//         contenidoCarrito.innerHTML = `
-//         <h3>${recorrido.nombre}</h3>
-//         <p>$ ${recorrido.precio}</p>
-//         `
-//         MCarrito.append(contenidoCarrito);
-
-//         console.log(carrito.length);
-
-//         let eliminar = document.createElement("div");
-//         eliminar.innerHTML = `
-//             <img  class="btneliminar" src="../assets/delete.png ">
-//         `
-//         MCarrito.append(eliminar);
-
-//         eliminar.addEventListener("click", eliminarProductos)
-//     });
-    
-//     const totalCarrito = carrito.reduce((acc, pp) => acc + pp.precio, 0);
-    
-//     let precioApagar = document.createElement("div");
-//     precioApagar.className = "precioApagar";
-//     precioApagar.innerHTML = `
-//     <p>Total a pagar: $ ${totalCarrito} </p>
-//     `;
-//     MCarrito.append(precioApagar);
-
-//     const botonModal = document.createElement("div");
-//     botonModal.innerText = "cerrar";
-//     botonModal.className = "botonModal";
-
-//     botonModal.addEventListener("click", () =>{
-//         MCarrito.style.display = "none";
-//     });
-//     MCarrito.append(botonModal);
-//     saveLocal();
-// };
-
-// carritoTienda.addEventListener("click", cosasCarrito);
-
-// const eliminarProductos = () => {
-//     const productoEliminado = carrito.find((element) => element.nombre);
-
-//     carrito = carrito.filter((nombreProducto) => {
-//         return nombreProducto !== productoEliminado;
-//     });
-//     cosasCarrito ();
-// };
 
 const saveLocal = () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
