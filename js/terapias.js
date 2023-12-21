@@ -1,28 +1,28 @@
 // FX 
 
-function Edad(){
-    edadUsuario = parseInt(prompt("Ingrese su edad"));
-    edadUsuario > 18 ? console.log("El usuario es mayor de edad") : console.log("El usuario es menor de edad");
-    if (edadUsuario >= 18){
-        window.location.href = "compras.html";
-    } else {
-        Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "No tenés permito el acceso",
-        });
-    }
-}
+// function Edad(){
+//     edadUsuario = parseInt(prompt("Ingrese su edad"));
+//     edadUsuario > 18 ? console.log("El usuario es mayor de edad") : console.log("El usuario es menor de edad");
+//     if (edadUsuario >= 18){
+//         window.location.href = "compras.html";
+//     } else {
+//         Swal.fire({
+//             icon: "error",
+//             title: "Oops...",
+//             text: "No tenés permito el acceso",
+//         });
+//     }
+// }
 
 // Botones página terapias
 
 let botones = document.getElementsByClassName("btn btn-outline-dark")
 
 for (let i = 0; i < botones.length; i++) {
-    botones[i].addEventListener("click", Edad);
+    botones[i].addEventListener("click", ()=>{ window.location.href = "compras.html"});
 }
 
-botones.addEventListener = ("click", Edad);
+botones.addEventListener = ("click", ()=>{ window.location.href = "compras.html"});
 
 
 // Fx constructora objetos terapia
@@ -106,7 +106,6 @@ carritoTienda.addEventListener("click", () => {
         contenidoCarrito.className = "contenidoCarrito"
         contenidoCarrito.innerHTML = `
         <h3>${recorrido.nombre}</h3>
-        <h5>${recorrido.tipo}</h5>
         <p>$ ${recorrido.precio}</p>
         `
         MCarrito.append(contenidoCarrito)
